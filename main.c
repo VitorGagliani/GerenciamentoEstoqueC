@@ -6,6 +6,7 @@
 typedef struct{
   char nome[50];
   int quantidade;
+  int id;
 } Produto;
 
 void cadastroProduto(Produto *produtos, int *qtt){
@@ -17,13 +18,15 @@ void cadastroProduto(Produto *produtos, int *qtt){
 
   printf("Digite a quantidade de entrada: ");
   scanf("%d", &produtos[*qtt].quantidade);
+
+  produtos[*qtt].id = *qtt + 1;
   (*qtt)++;
 }
 
 void visualizarProdutos(Produto produtos[], int qtt){
 
   for(int i = 0; i < qtt; i++){
-    printf("ID: %d | Nome: %s | Quantidade: %d",i, produtos[i].nome, produtos[i].quantidade);
+    printf("ID: %d | Nome: %s | Quantidade: %d", produtos[i].id, produtos[i].nome, produtos[i].quantidade);
     printf("\n");
   }
 }
@@ -33,7 +36,7 @@ void saidaProduto(Produto produtos[], int qtt){
   printf("Digite o ID do produto para registrar saida: ");
   scanf("%d", &id);
   for(int i = 0; i < qtt; i++){
-    if(id == i){
+    if(id == i+1){
       printf("Digite a quantidade de saida: ");
       scanf("%d", &saida);
 
@@ -44,10 +47,10 @@ void saidaProduto(Produto produtos[], int qtt){
 
 void entradaProduto(Produto produtos[], int qtt){
   int id, entrada;
-  printf("Digite o ID do produto para registrar entrada;: ");
+  printf("Digite o ID do produto para registrar entrada: ");
   scanf("%d", &id);
   for(int i = 0; i < qtt; i++){
-    if(id == i){
+    if(id == i+1){
       printf("Digite a quantidade de entrada: ");
       scanf("%d", &entrada);
 
@@ -61,7 +64,7 @@ void alterarNome(Produto produtos[], int qtt){
   printf("Digite o ID do produto para alterar o nome: ");
   scanf("%d", &id);
   for(int i = 0; i < qtt; i++){
-    if(id == i){
+    if(id == i+1){
       printf("Digite o novo nome para o produto: ");
       getchar();
       fgets(produtos[i].nome,sizeof(produtos[i].nome), stdin);
@@ -69,6 +72,25 @@ void alterarNome(Produto produtos[], int qtt){
     }
   }
 }
+
+// void ordenarQuantidade(Produto produtos[], int qtt){
+//   Produto aux;
+//   for(int i = 0; i < qtt; i++){
+//     for(int j = i + 1; j < qtt; j++){
+//       if(produtos[i].quantidade > produtos[j].quantidade) {
+//         aux = produtos[i];
+//         produtos[i] = produtos[j];
+//         produtos[j] = aux;
+//       }
+//     }
+//   }
+
+//   for(int i = 0; i < qtt; i++){
+//     printf("ID: %d | Nome: %s | Quantidade: %d", produtos[i].id, produtos[i].nome, produtos[i].quantidade);
+//     printf("\n");
+//   }
+
+// }
 
 int main(){
 
@@ -100,6 +122,9 @@ do{
       case 5:
         alterarNome(produtos, tam);
         break;
+      // case 6:
+      //   ordenarQuantidade(produtos, tam);
+      //   break;
     }
 
 }while(op <= 5);

@@ -1,2 +1,0 @@
-Alterar nome do produto
-Ordenar por quantidade
