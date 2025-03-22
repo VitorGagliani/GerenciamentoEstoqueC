@@ -73,25 +73,6 @@ void alterarNome(Produto produtos[], int qtt){
   }
 }
 
-// void ordenarQuantidade(Produto produtos[], int qtt){
-//   Produto aux;
-//   for(int i = 0; i < qtt; i++){
-//     for(int j = i + 1; j < qtt; j++){
-//       if(produtos[i].quantidade > produtos[j].quantidade) {
-//         aux = produtos[i];
-//         produtos[i] = produtos[j];
-//         produtos[j] = aux;
-//       }
-//     }
-//   }
-
-//   for(int i = 0; i < qtt; i++){
-//     printf("ID: %d | Nome: %s | Quantidade: %d", produtos[i].id, produtos[i].nome, produtos[i].quantidade);
-//     printf("\n");
-//   }
-
-// }
-
 int main(){
 
 Produto produtos[MAX_PRODUTO];
@@ -122,9 +103,6 @@ do{
       case 5:
         alterarNome(produtos, tam);
         break;
-      // case 6:
-      //   ordenarQuantidade(produtos, tam);
-      //   break;
     }
 
 }while(op <= 5);
