@@ -79,7 +79,7 @@ int op,
 
 do{
 
-  printf("1- Cadastrar Produto\n2- Visualizar Produtos\n3- Saida de Produto\n4- Entrada de Produto \n5- Alterar nome do produto\n");
+  printf("1- Cadastrar Produto\n2- Visualizar Produtos\n3- Saida de Produto\n4- Entrada de Produto \n5- Alterar nome do produto\n6- Sair\n");
   printf("Escolha a opcao desejada: ");
 
     scanf("%d", &op);
